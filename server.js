@@ -6,7 +6,7 @@ app.use(express.static("public"));
 
 app.use(express.urlencoded({extended:true}));
 
-const PORT = 8800
+const PORT = process.env.PORT || 8800;
 
 app.get("/",(req, res)=>{
     res.sendFile(path.join(__dirname,"public", "index.html"));
