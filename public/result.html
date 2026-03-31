@@ -4,24 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Result</title>
-  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-  <div class="container">
-    <div class="result-card">
-      <h2>Calculation Result</h2>
+<body class="h-screen flex items-center justify-center bg-gradient-to-br from-rose-400 via-fuchsia-500 to-indigo-600">
 
-      <p id="resultText"></p>
+  <div class="backdrop-blur-lg bg-white/20 p-8 rounded-2xl shadow-2xl w-[320px] text-center text-white">
 
-      <a href="/" class="back-btn">🔙 Back to Calculator</a>
-    </div>
+    <h2 class="text-2xl text-black font-bold mb-5"> Result</h2>
+
+    <p id="resultText" class="text-3xl text-black font-bold my-4"></p>
+
+    <a href="index.html"
+      class="inline-block mt-4 px-5 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-400 hover:scale-105 transition">
+       Back
+    </a>
+
   </div>
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    const result = params.get("result");
-    document.getElementById("resultText").innerText = "Result: " + result;
+    const num1 = parseFloat(params.get("number1"));
+    const num2 = parseFloat(params.get("number2"));
+    const operation = params.get("operation");
+
+    let result;
+
+    switch(operation) {
+      case "add": result = num1 + num2; break;
+      case "subtract": result = num1 - num2; break;
+      case "multiply": result = num1 * num2; break;
+      case "divide": result = num2 !== 0 ? num1 / num2 : "Cannot divide by zero"; break;
+      default: result = "Invalid";
+    }
+
+    document.getElementById("resultText").innerText = result;
   </script>
+
 </body>
 </html>
