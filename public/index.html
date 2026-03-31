@@ -3,31 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Calculator</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Calculator</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-  <div class="container">
-    <form action="" method="post" class="calculator">
-      <h2>🧮 Calculator</h2>
+<body class="h-screen flex items-center justify-center bg-gradient-to-br from-rose-400 via-fuchsia-500 to-indigo-600">
 
-      <label>First Number</label>
-      <input type="number" name="number1" placeholder="Enter first number" required>
+  <form action="result.html" method="get"
+    class="backdrop-blur-lg bg-white/20 p-8 rounded-2xl shadow-2xl w-[320px] text-white">
 
-      <label>Operation</label>
-      <select name="operation">
-        <option value="add">Addition (+)</option>
-        <option value="subtract">Subtraction (-)</option>
-        <option value="multiply">Multiplication (*)</option>
-        <option value="divide">Division (/)</option>
-      </select>
+    <h2 class="text-2xl text-black font-bold text-center mb-5">Calculator</h2>
 
-      <label>Second Number</label>
-      <input type="number" name="number2" placeholder="Enter second number" required>
+    <label class="text-sm text-gray-900">First Number</label>
+    <input type="number" name="number1" required
+      class="w-full mt-1 p-2 rounded-lg text-black outline-none focus:ring-2 focus:ring-white">
 
-      <button type="submit">Calculate</button>
-    </form>
-  </div>
+    <label class="text-sm text-gray-900 mt-3 block">Operation</label>
+    <select name="operation"
+      class="w-full mt-1 p-2 rounded-lg text-black outline-none focus:ring-2 focus:ring-white">
+      <option value="add">+ Addition</option>
+      <option value="subtract">- Subtraction</option>
+      <option value="multiply">* Multiplication</option>
+      <option value="divide">/ Division</option>
+    </select>
+
+    <label class="text-sm text-gray-900 mt-3 block">Second Number</label>
+    <input type="number" name="number2" required
+      class="w-full mt-1 p-2 rounded-lg text-black outline-none focus:ring-2 focus:ring-white">
+
+    <button type="submit"
+      class="w-full mt-5 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-400 hover:scale-105 transition">
+      Calculate 
+    </button>
+
+  </form>
+
 </body>
 </html>
